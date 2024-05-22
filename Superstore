@@ -1,0 +1,247 @@
+CREATE TABLE superstore (
+    item_id INTEGER PRIMARY KEY,
+    item_name TEXT,
+    category TEXT,
+    price DECIMAL(10, 2),
+    stock_quantity INTEGER,
+    average_rating DECIMAL(3, 2)
+);
+
+INSERT INTO superstore (item_id, item_name, category, price, stock_quantity, average_rating)
+VALUES
+    (1, 'Stainless Steel Cookware Set', 'Kitchen Supplies', 89.99, 50, 4.6),
+    (2, 'Memory Foam Mattress', 'Furnishings', 499.99, 30, 4.8),
+    (3, 'Smart LED TV', 'Electronics', 549.00, 20, 4.5),
+    (4, 'Robot Vacuum Cleaner', 'Appliances', 199.50, 40, 4.3),
+    (5, 'Wireless Bluetooth Speaker', 'Electronics', 39.99, 60, 4.2),
+    (6, 'Non-Stick Baking Set', 'Kitchen Supplies', 29.95, 80, 4.4),
+    (7, 'Cotton Bedding Set', 'Furnishings', 89.00, 25, 4.7),
+    (8, 'Smart Home Security Camera', 'Electronics', 79.95, 15, 4.1),
+    (9, 'Air Purifier', 'Appliances', 129.50, 35, 4.6),
+    (10, 'Premium Coffee Maker', 'Kitchen Supplies', 79.99, 50, 4.9),
+    (11, 'Ergonomic Office Chair', 'Furnishings', 189.00, 20, 4.5),
+    (12, 'Wireless Earbuds', 'Electronics', 49.99, 75, 4.3),
+    (13, 'Slow Cooker', 'Appliances', 49.95, 30, 4.7),
+    (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
+    (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+
+SELECT * FROM superstore
+ORDER BY price;
+
+SELECT SUM(price)
+FROM superstore;
+
+SELECT SUM(price)
+FROM superstore
+WHERE category="Kitchen Supplies";
+
+SELECT SUM(stock_quantity)
+FROM superstore
+WHERE category="Kitchen Supplies";
+
+SELECT SUM(average_rating)
+FROM superstore
+WHERE category="Kitchen Supplies";
+
+SELECT AVG(price)
+FROM superstore
+WHERE category="Furnishings";
+
+SELECT AVG(stock_quantity)
+FROM superstore
+WHERE category="Furnishings";
+
+SELECT AVG(average_rating)
+FROM superstore
+WHERE category="Furnishings";
+
+SELECT MAX(price)
+FROM superstore
+WHERE category="Electronics";
+
+SELECT MAX(stock_quantity)
+FROM superstore
+WHERE category="Electronics";
+
+SELECT MAX(average_rating)
+FROM superstore
+WHERE category="Electronics";
+
+SELECT MIN(price)
+FROM superstore
+WHERE category="Appliances";
+
+SELECT MIN(stock_quantity)
+FROM superstore
+WHERE category="Appliances";
+
+SELECT MIN(average_rating)
+FROM superstore
+WHERE category="Appliances";
+
+**Query #1**
+
+    SELECT * FROM superstore
+    ORDER BY price;
+
+| item_id | item_name                    | category         | price  | stock_quantity | average_rating |
+| ------- | ---------------------------- | ---------------- | ------ | -------------- | -------------- |
+| 15      | Cozy Throw Blanket           | Furnishings      | 24.99  | 100            | 4.20           |
+| 6       | Non-Stick Baking Set         | Kitchen Supplies | 29.95  | 80             | 4.40           |
+| 14      | Cutlery Set                  | Kitchen Supplies | 34.50  | 40             | 4.40           |
+| 5       | Wireless Bluetooth Speaker   | Electronics      | 39.99  | 60             | 4.20           |
+| 13      | Slow Cooker                  | Appliances       | 49.95  | 30             | 4.70           |
+| 12      | Wireless Earbuds             | Electronics      | 49.99  | 75             | 4.30           |
+| 8       | Smart Home Security Camera   | Electronics      | 79.95  | 15             | 4.10           |
+| 10      | Premium Coffee Maker         | Kitchen Supplies | 79.99  | 50             | 4.90           |
+| 7       | Cotton Bedding Set           | Furnishings      | 89.00  | 25             | 4.70           |
+| 1       | Stainless Steel Cookware Set | Kitchen Supplies | 89.99  | 50             | 4.60           |
+| 9       | Air Purifier                 | Appliances       | 129.50 | 35             | 4.60           |
+| 11      | Ergonomic Office Chair       | Furnishings      | 189.00 | 20             | 4.50           |
+| 4       | Robot Vacuum Cleaner         | Appliances       | 199.50 | 40             | 4.30           |
+| 2       | Memory Foam Mattress         | Furnishings      | 499.99 | 30             | 4.80           |
+| 3       | Smart LED TV                 | Electronics      | 549.00 | 20             | 4.50           |
+
+---
+**Query #2**
+
+    SELECT SUM(price)
+    FROM superstore;
+
+| SUM(price) |
+| ---------- |
+| 2135.29    |
+
+---
+**Query #3**
+
+    SELECT SUM(price)
+    FROM superstore
+    WHERE category="Kitchen Supplies";
+
+| SUM(price) |
+| ---------- |
+| 234.43     |
+
+---
+**Query #4**
+
+    SELECT SUM(stock_quantity)
+    FROM superstore
+    WHERE category="Kitchen Supplies";
+
+| SUM(stock_quantity) |
+| ------------------- |
+| 220                 |
+
+---
+**Query #5**
+
+    SELECT SUM(average_rating)
+    FROM superstore
+    WHERE category="Kitchen Supplies";
+
+| SUM(average_rating) |
+| ------------------- |
+| 18.30               |
+
+---
+**Query #6**
+
+    SELECT AVG(price)
+    FROM superstore
+    WHERE category="Furnishings";
+
+| AVG(price) |
+| ---------- |
+| 200.745000 |
+
+---
+**Query #7**
+
+    SELECT AVG(stock_quantity)
+    FROM superstore
+    WHERE category="Furnishings";
+
+| AVG(stock_quantity) |
+| ------------------- |
+| 43.7500             |
+
+---
+**Query #8**
+
+    SELECT AVG(average_rating)
+    FROM superstore
+    WHERE category="Furnishings";
+
+| AVG(average_rating) |
+| ------------------- |
+| 4.550000            |
+
+---
+**Query #9**
+
+    SELECT MAX(price)
+    FROM superstore
+    WHERE category="Electronics";
+
+| MAX(price) |
+| ---------- |
+| 549.00     |
+
+---
+**Query #10**
+
+    SELECT MAX(stock_quantity)
+    FROM superstore
+    WHERE category="Electronics";
+
+| MAX(stock_quantity) |
+| ------------------- |
+| 75                  |
+
+---
+**Query #11**
+
+    SELECT MAX(average_rating)
+    FROM superstore
+    WHERE category="Electronics";
+
+| MAX(average_rating) |
+| ------------------- |
+| 4.50                |
+
+---
+**Query #12**
+
+    SELECT MIN(price)
+    FROM superstore
+    WHERE category="Appliances";
+
+| MIN(price) |
+| ---------- |
+| 49.95      |
+
+---
+**Query #13**
+
+    SELECT MIN(stock_quantity)
+    FROM superstore
+    WHERE category="Appliances";
+
+| MIN(stock_quantity) |
+| ------------------- |
+| 30                  |
+
+---
+**Query #14**
+
+    SELECT MIN(average_rating)
+    FROM superstore
+    WHERE category="Appliances";
+
+| MIN(average_rating) |
+| ------------------- |
+| 4.30                |
+
+---
